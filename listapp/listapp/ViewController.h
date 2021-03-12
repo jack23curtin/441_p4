@@ -11,6 +11,9 @@
 @property (nonatomic, strong) IBOutlet UITableView *tableView;
 @property (nonatomic, strong) NSMutableArray *arrayOfData;
 
+@property (nonatomic, strong) IBOutlet UIButton *addItemButton;
+
+
 
 
 

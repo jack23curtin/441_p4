@@ -19,6 +19,9 @@
 
 @synthesize arrayOfData;
 
+@synthesize addItemButton;
+
+
 
 
 
@@ -40,11 +43,19 @@
     return arrayOfData;
 }
 
+- (IBAction)addItemFunc:(id)sender
+{
+    NSArray *strings = @[@"Butter", @"Flour", @"Juice",@"Crown Roast", @"Little cakes, like super small", @"Ice",@"Cheese", @"Candy", @"Salmon",@"A new car", @"Egg Noodles", @"Other items"];
+    NSString *randomString = strings[arc4random_uniform(strings.count)];
+    [arrayOfData addObject:randomString];
+    [tableView reloadData];
+
+}
+
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
     
-    long numGroc = arrayOfData.count;
-    NSLog(@"Num Groc %ld", numGroc);
+    NSLog(@"Num Groc %ld", arrayOfData.count);
     return arrayOfData.count;
 }
 // Row display. Implementers should *always* try to reuse cells by setting each cell's reuseIdentifier and querying for available reusable cells with dequeueReusableCellWithIdentifier:
